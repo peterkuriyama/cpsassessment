@@ -7,21 +7,23 @@
 #' @param thecores Number of cores to run in parallel
 #' @param jitinds Number of jitter runs
 #' @param thejitamount Percentage to jitter runs; default is 0.05 or 5 percent.
+#' @param SScall Directory of Stock Synthesis Call, make sure it has -nohess
 #' @author Peter Kuriyama
 #' @export
 
 rr_jitter_parallel <- function(thedir = "00_caal/4a_cohort_seprofile/7_jitters/",
-                               thecores, thejitinds = 1:8, thejitamount){
+                               thecores, thejitinds = 1:8, thejitamount, SScall){
   
   copy_files_jitter(dir = thedir, jitinds = thejitinds,
                     jitamount = thejitamount)
   
   run_ss_parallel(dir = thedir, inds = thejitinds,
-                  syscall = "../../../../../ss3.30.15/ss -noest", ncores = thecores, randruns = TRUE,
+                  syscall = SScall, ncores = thecores,
                   readres = FALSE)
   
   jitouts <- run_ss_parallel(dir = thedir, inds = thejitinds,
-                             syscall = "../../../../../ss3.30.15/ss -nohess", ncores = thecores, randruns = FALSE,
+                             syscall = SScall, ncores = thecores, 
+                             # randruns = FALSE,
                              readres = TRUE)
   
   return(jitouts)
