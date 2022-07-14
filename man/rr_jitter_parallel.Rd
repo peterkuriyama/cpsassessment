@@ -8,7 +8,8 @@ rr_jitter_parallel(
   thedir = "00_caal/4a_cohort_seprofile/7_jitters/",
   thecores,
   thejitinds = 1:8,
-  thejitamount
+  thejitamount,
+  SScall
 )
 }
 \arguments{
@@ -17,6 +18,8 @@ rr_jitter_parallel(
 \item{thecores}{Number of cores to run in parallel}
 
 \item{thejitamount}{Percentage to jitter runs; default is 0.05 or 5 percent.}
+
+\item{SScall}{Directory of Stock Synthesis Call, make sure it has -nohess}
 
 \item{jitinds}{Number of jitter runs}
 }
