@@ -17,9 +17,9 @@ rr_jitter_parallel <- function(thedir = "00_caal/4a_cohort_seprofile/7_jitters/"
   copy_files_jitter(dir = thedir, jitinds = thejitinds,
                     jitamount = thejitamount)
   
-  run_ss_parallel(dir = thedir, inds = thejitinds,
-                  syscall = SScall, ncores = thecores,
-                  readres = FALSE)
+  # run_ss_parallel(dir = thedir, inds = thejitinds,
+  #                 syscall = SScall, ncores = thecores,
+  #                 readres = FALSE)
   
   jitouts <- run_ss_parallel(dir = thedir, inds = thejitinds,
                              syscall = SScall, ncores = thecores, 
