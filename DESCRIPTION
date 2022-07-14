@@ -1,4 +1,4 @@
-Package: cps_assessment
+Package: cpsassessment
 Type: Package
 Title: Helper functions for CPS Stock asssessments
 Version: 0.0.1
