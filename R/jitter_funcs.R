@@ -56,7 +56,7 @@ copy_files_jitter <- function(dir, jitinds, jitamount){
     
     #Copy files
     file.copy(paste0(from, "/data.ss"), paste0(to, '/data.ss'))
-    file.copy(paste0(from, "/control.ss_new"), paste0(to, '/control.ss_new'))
+    file.copy(paste0(from, "/control.ss_new"), paste0(to, '/control.ss'))
     writeLines(starter, paste0(to, '/starter.ss'))
     file.copy(paste0(from, "/forecast.ss"), paste0(to, '/forecast.ss'))  
     file.copy(paste0(from, "/ss.par"), paste0(to, '/ss.par'))  
