@@ -29,8 +29,12 @@ pull_pars_lls <- function(res){
 pull_timeseries <- function(res){
   out <- lapply(res, FUN = function(xx){
     temp <- xx$timeseries
-    temp <- temp %>% select(2, 3, 4, 5, 6, 7, 8) %>% filter(Era != "FORE", 
-                                                            Era != "VIRG", Era != "INIT")
+    temp <- temp %>% select(2, 3, 4, 5, 6, 7, 8) %>% filter(Era != "VIRG", Era != "INIT")
   })
   out <- ldply(out)  
+  out$model <- out[, 1]
+  out[, 1] <- NULL
+  return(out)
 }
+
+
