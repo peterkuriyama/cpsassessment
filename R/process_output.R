@@ -37,4 +37,23 @@ pull_timeseries <- function(res){
   return(out)
 }
 
-
+#Pull age selectivity curves for plotting
+pull_ageselex <- function(res, fact = "Asel"){
+  out <- lapply(res, FUN = function(xx){
+    temp <- xx$ageselex
+    names(temp)[8:18]
+    
+    ncol(temp)
+    
+    temp <- temp %>% filter(Factor == fact) %>% select(Fleet, Yr, Seas, 8:18) %>% 
+      melt(id.var = c("Fleet", "Yr", "Seas"))
+    temp$age <- as.numeric(as.character(temp$variable))
+    temp$variable <- NULL
+    return(temp)
+  })
+  out <- ldply(out)
+  out$model <- out[, 1]
+  out[, 1] <- NULL
+  return(out)
+  
+}
