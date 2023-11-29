@@ -38,6 +38,10 @@ pull_timeseries <- function(res){
 }
 
 #Pull age selectivity curves for plotting
+#' Pull the time series values
+#'
+#' @param res List of results for evaluation
+#' @export
 pull_ageselex <- function(res, fact = "Asel"){
   out <- lapply(res, FUN = function(xx){
     temp <- xx$ageselex
